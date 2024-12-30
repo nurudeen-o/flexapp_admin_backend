@@ -1,0 +1,61 @@
+{
+    "name": "FlexApp Admin Backend",
+    "version": "1.0.0",
+    "description": "A Node.js backend for Admin Panel built in TypeScript",
+    "main": "dist/app.js",
+    "scripts": {
+        "start": "node dist/app.js",
+        "dev": "nodemon --watch src --ext ts --exec ts-node src/app.ts",
+        "build": "tsc",
+        "lint": "eslint . --ext .ts",
+        "format": "prettier --write ."
+    },
+    "keywords": [],
+    "author": "Nurudeen Ahmed",
+    "license": "MIT",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "jsonwebtoken": "^9.0.2",
+        "mysql2": "^3.12.0",
+        "sequelize": "^6.37.5"
+    },
+    "devDependencies": {
+        "@types/bcryptjs": "^2.4.6",
+        "@types/cors": "^2.8.17",
+        "@types/express": "^4.17.21",
+        "@types/jsonwebtoken": "^9.0.7",
+        "@types/node": "^20.17.10",
+        "@types/sequelize": "^4.28.20",
+        "@typescript-eslint/eslint-plugin": "^6.7.3",
+        "@typescript-eslint/parser": "^6.7.3",
+        "eslint": "^8.50.0",
+        "nodemon": "^3.0.1",
+        "prettier": "^3.1.3",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.2.2"
+    },
+    "eslintConfig": {
+        "parser": "@typescript-eslint/parser",
+        "plugins": [
+            "@typescript-eslint"
+        ],
+        "extends": [
+            "eslint:recommended",
+            "plugin:@typescript-eslint/recommended"
+        ],
+        "env": {
+            "node": true,
+            "es2021": true
+        }
+    },
+    "prettier": {
+        "semi": true,
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "printWidth": 80
+    }
+}
