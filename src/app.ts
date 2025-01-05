@@ -6,6 +6,8 @@ import cors from "cors";
 import authRoutes from "./routes/auth";
 import userRoutes from "./routes/user";
 import healthRoutes from "./routes/health";
+import transactionRoutes from "./routes/transactions";
+import adsRoutes from "./routes/ads";
 
 import { sequelize } from "./config/database";
 import { errorHandler } from "./middlewares/errorHandler";
@@ -22,6 +24,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/admin/auth", authRoutes);
 app.use("/api/admin/users", userRoutes);
 app.use("/api/health", healthRoutes);
+app.use("/api/transactions", transactionRoutes);
+app.use("/api/ads", adsRoutes);
 
 // Test route
 app.get("/", (req: Request, res: Response) => {

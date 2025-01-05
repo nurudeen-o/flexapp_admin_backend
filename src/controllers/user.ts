@@ -65,6 +65,28 @@ export const suspendUser = async (req: Request, res: Response, next: NextFunctio
   }
 };
 
+// Update user KYC
+export const updateKyc = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { id, val } = req.params;
+
+    const user = await User.findByPk(id);
+    if (!user) {
+      res.status(404).json({ status: "error", message: "User not found" });
+      return;
+    }
+
+    await user.update({ verification_status: val });
+    res.status(200).json({
+      status: "success",
+      message: "User verification updated successfully",
+      data: excludeSensitiveFields(user.get()),
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 // Assign role to user
 export const assignRole = async (req: Request, res: Response, next: NextFunction) => {
   try {

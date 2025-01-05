@@ -1,5 +1,7 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import { sequelize } from "../config/database";
+import { Transaction } from "./transactions";
+import Ad from "./ads";
 
 interface UserAttributes {
   id: number;
@@ -88,5 +90,11 @@ User.init(
     timestamps: false,
   }
 );
+
+
+Transaction.belongsTo(User, { foreignKey: "buyer_id", targetKey: "user_id", as: "buyer" });
+Transaction.belongsTo(User, { foreignKey: "seller_id", targetKey: "user_id", as: "seller" });
+
+Ad.belongsTo(User, { foreignKey: "user_id", targetKey: "user_id", as: "user" });
 
 export default User;
